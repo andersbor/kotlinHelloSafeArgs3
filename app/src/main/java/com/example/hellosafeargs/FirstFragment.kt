@@ -10,9 +10,6 @@ import com.example.hellosafeargs.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,7 +23,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        binding.buttonNext.setOnClickListener {
             val name = binding.edittextName.text.trim().toString()
             if (name.isEmpty()) {
                 binding.edittextName.error = "No name"
@@ -34,10 +31,17 @@ class FirstFragment : Fragment() {
             }
 
             // Update both gradle files
+            // https://developer.android.com/guide/navigation/use-graph/safe-args
             // Add argument element to nav_graph.xml (secondFragment)
+            //val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
             val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(name)
             findNavController().navigate(action)
             //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        binding.buttonNextDefaultValue.setOnClickListener {
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragmentWithDefaultValue()
+            findNavController().navigate(action)
         }
     }
 

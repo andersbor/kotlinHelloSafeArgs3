@@ -21,8 +21,15 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/button_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/next" />
+        android:text="Next, with name" />
+
+    <Button
+        android:id="@+id/button_next_default_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next, with default value" />
+
 </LinearLayout>

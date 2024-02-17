@@ -11,9 +11,20 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
+
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+
+        <!-- https://developer.android.com/guide/navigation/use-graph/pass-data#kts -->
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment_with_default_value"
+            app:destination="@id/SecondFragment" >
+            <argument
+                android:name="personname"
+                android:defaultValue="no name provided"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -21,9 +32,6 @@
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
         <argument
             android:name="personname"
             app:argType="string" />
